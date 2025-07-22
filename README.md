@@ -1,4 +1,4 @@
-# 🧠 AI Content Optimizer for WordPress
+# 🧠 AI Content Optimizer
 
 **Optimize your WordPress content with AI. Improve SEO, readability, tone, and engagement—all in one powerful plugin.**
 
@@ -46,17 +46,6 @@ AI Content Optimizer is a smart, lightweight WordPress plugin that empowers cont
 
 - WordPress 5.6+
 - PHP 7.4+
-- Optional: OpenAI API Key (for Pro AI features)
-
----
-
-## 📂 Plugin Files
-
-- `ai-content-optimizer.php` – Main plugin file
-- `/includes/` – Core PHP classes and logic
-- `/templates/` – Admin UI and content editor
-- `/assets/` – JS and CSS files
-- `/languages/` – Translation-ready `.pot` file (optional)
 
 ---
 
@@ -71,10 +60,5 @@ This plugin is licensed under the [GPLv2 or later](https://www.gnu.org/licenses/
 **Sudipta Das**  
 For support and updates, visit: [Codecanyon Profile](https://codecanyon.net/)
 
----
-
-## 💡 Pro Tip
-
-Make every post your best post—optimized for search engines and your audience—using AI Content Optimizer!
 
 
