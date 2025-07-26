@@ -5,6 +5,7 @@ class AI_Content_Optimizer {
 
     public function run() {
         add_action('admin_menu', [$this, 'add_admin_menu']);
+        add_action('admin_init', [$this, 'register_settings']);
         add_action('admin_enqueue_scripts', [$this, 'load_assets']);
         add_action('wp_ajax_aico_optimize_content', [$this, 'handle_optimize_content']);
     }
@@ -21,6 +22,12 @@ class AI_Content_Optimizer {
         );
     }
 
+    // Register setting for API key
+    public function register_settings() {
+        register_setting('aico_options_group', 'aico_api_key');
+    }
+
+    
     public function load_assets($hook) {
         if (strpos($hook, 'ai-content-optimizer') === false) return;
 

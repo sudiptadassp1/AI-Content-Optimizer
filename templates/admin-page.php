@@ -1,3 +1,11 @@
+<form method="post" action="options.php">
+    <?php settings_fields('aico_options_group'); ?>
+    <label>OpenAI API Key:</label><br>
+    <input type="text" name="aico_api_key" value="<?php echo esc_attr(get_option('aico_api_key')); ?>" style="width:100%">
+    <?php submit_button('Save API Key'); ?>
+</form>
+
+
 <div class="wrap">
     <h1>AI Content Optimizer</h1>
     <p>Paste your content below and click Optimize to see AI improvements.</p>
