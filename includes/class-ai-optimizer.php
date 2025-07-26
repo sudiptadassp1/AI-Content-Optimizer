@@ -27,7 +27,7 @@ class AI_Content_Optimizer {
         register_setting('aico_options_group', 'aico_api_key');
     }
 
-    
+
     public function load_assets($hook) {
         if (strpos($hook, 'ai-content-optimizer') === false) return;
 
@@ -49,9 +49,38 @@ class AI_Content_Optimizer {
 
         $content = sanitize_text_field($_POST['content'] ?? '');
 
-        // Here you'd normally call OpenAI or similar API
-        $optimized = strtoupper($content); // Dummy transformation
+        $api_key = get_option('aico_api_key');
+        if (empty($api_key)) {
+            wp_send_json_error(['message' => 'No API key set.']);
+        }
 
-        wp_send_json_success(['optimized' => $optimized]);
+        // Call AI API (OpenAI)
+        $response = wp_remote_post('https://api.openai.com/v1/chat/completions', [
+            'headers' => [
+                'Content-Type'  => 'application/json',
+                'Authorization' => 'Bearer ' . $api_key
+            ],
+            'body' => json_encode([
+                'model' => 'gpt-3.5-turbo',
+                'messages' => [
+                    ["role" => "system", "content" => "You are an SEO and content optimization expert."],
+                    ["role" => "user", "content" => "Optimize this content:\n\n" . $content]
+                ],
+                'max_tokens' => 300
+            ]),
+            'timeout' => 60
+        ]);
+
+        if (is_wp_error($response)) {
+            wp_send_json_error(['message' => $response->get_error_message()]);
+        }
+
+        $data = json_decode(wp_remote_retrieve_body($response), true);
+        if (isset($data['choices'][0]['text'])) {
+            wp_send_json_success(['optimized' => trim($data['choices'][0]['text'])]);
+        } else {
+            $error = isset($data['error']['message']) ? $data['error']['message'] : 'API error.';
+            wp_send_json_error(['message' => $error]);
+        }
     }
 }

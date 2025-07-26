@@ -1,4 +1,5 @@
-<form method="post" action="options.php">
+<h1>Enter OpenAI API </h1>
+<form method="post" action="options.php" class="wrap">
     <?php settings_fields('aico_options_group'); ?>
     <label>OpenAI API Key:</label><br>
     <input type="text" name="aico_api_key" value="<?php echo esc_attr(get_option('aico_api_key')); ?>" style="width:100%">
