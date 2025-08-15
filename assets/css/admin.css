@@ -1,0 +1,160 @@
+:root {
+  --aico-bg: #f5f7fb;
+  --aico-card: #ffffff;
+  --aico-primary: #4f46e5;
+  --aico-primary-2: #7c3aed;
+  --aico-text: #2d3748;
+  --aico-muted: #64748b;
+  --aico-border: #e5e7eb;
+  --aico-green: #10b981;
+}
+
+.aico-wrap { max-width: 1080px; margin: 20px auto; padding: 0 10px; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+.aico-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; }
+.aico-brand { display:flex; gap:12px; align-items:center; }
+.aico-logo { font-size:30px; }
+.aico-header h1 { margin:0; font-size:22px; color: var(--aico-text); }
+.aico-header p { margin:2px 0 0; color: var(--aico-muted); }
+
+.aico-grid { display:grid; grid-template-columns: 1fr; gap:16px; }
+@media (min-width: 992px){ .aico-grid { grid-template-columns: 1fr 1fr; } }
+
+.aico-card { background: var(--aico-card); border:1px solid var(--aico-border); border-radius:14px; padding:18px; box-shadow: 0 4px 20px rgba(0,0,0,.04); }
+.aico-card h2 { margin-top:0; color: var(--aico-text); font-size:18px; }
+
+.aico-form label { display:block; font-weight:600; margin-bottom:6px; color: var(--aico-text); }
+.aico-form input[type="text"] { width:100%; border:1px solid var(--aico-border); border-radius:10px; padding:10px 12px; font-size:14px; }
+.aico-help { color: var(--aico-muted); font-size:12px; margin-top:8px; }
+
+#aico_content { width:100%; min-height:220px; border:1px solid var(--aico-border); border-radius:12px; padding:12px; font-size:14px; outline:none; }
+#aico_content:focus { border-color: var(--aico-primary); box-shadow: 0 0 0 3px rgba(79,70,229,.15); }
+
+.aico-stats { display:flex; gap:16px; color: var(--aico-muted); font-size:12px; margin:6px 0 8px; }
+
+.aico-toolbar { display:flex; gap:10px; margin-top:10px; }
+
+.aico-btn { background: linear-gradient(135deg, var(--aico-primary), var(--aico-primary-2)); color:#fff; border:none; border-radius:10px; padding:10px 14px; cursor:pointer; font-weight:600; transition: transform .05s ease, box-shadow .2s ease; box-shadow: 0 6px 14px rgba(79,70,229,.25); }
+.aico-btn:hover { transform: translateY(-1px); }
+.aico-btn:active { transform: translateY(0); }
+.aico-btn.aico-outline { background: #fff; color: var(--aico-primary); border:1px solid var(--aico-primary); box-shadow:none; }
+
+.aico-progress { display:flex; gap:10px; align-items:center; background:#f8fafc; border:1px dashed var(--aico-border); padding:10px; border-radius:12px; margin-top:12px; }
+.aico-spinner {
+    display: none; /* Hide spinner by default */
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-top-color: #007cba;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 10px;
+}
+@keyframes spin { to { transform: rotate(360deg);} }
+.aico-progress-text { color: var(--aico-muted); }
+
+.aico-result { min-height:220px; background:#f9fafb; border:1px solid var(--aico-border); border-radius:12px; padding:12px; white-space:pre-wrap; }
+
+/* Animations */
+.aico-animate { animation: aicoFade .4s ease both; }
+@keyframes aicoFade { from { opacity:0; transform: translateY(6px);} to {opacity:1; transform: translateY(0);} }
+
+/* Toast */
+.aico-toast { position: fixed; bottom: 24px; right: 24px; background: var(--aico-text); color:#fff; padding:10px 14px; border-radius:10px; box-shadow: 0 10px 30px rgba(0,0,0,.15); opacity:0; transform: translateY(6px); transition: all .25s ease; }
+.aico-toast.show { opacity:1; transform: translateY(0); }
+
+.aico-settings-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    max-width: 600px;
+    margin: 30px auto;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.aico-settings-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.aico-settings-header h2 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.aico-icon {
+    font-size: 1.6rem;
+}
+
+.aico-label {
+    font-weight: 500;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.aico-input-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+#aico_api_key {
+    width: 100%;
+    padding: 10px 40px 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: border-color 0.2s ease;
+}
+
+#aico_api_key:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+.aico-toggle-visibility {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: #6b7280;
+    transition: color 0.2s;
+}
+
+.aico-toggle-visibility:hover {
+    color: #2563eb;
+}
+
+.aico-save-btn {
+    margin-top: 20px;
+    padding: 10px 18px;
+    background-color: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.aico-save-btn:hover {
+    background-color: #1e4fd6;
+    transform: translateY(-1px);
+}
+
+.aico-note {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin-top: 10px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}

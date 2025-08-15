@@ -1,8 +1,8 @@
 <?php
 if (!defined('ABSPATH')) exit;
 
-function aico_log($message) {
-    if (WP_DEBUG === true) {
-        error_log('[AICO] ' . print_r($message, true));
-    }
+function aico_is_current_screen($slug) {
+    if (!function_exists('get_current_screen')) return false;
+    $screen = get_current_screen();
+    return $screen && strpos($screen->id, $slug) !== false;
 }
