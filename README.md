@@ -45,27 +45,6 @@ It helps writers, bloggers, and marketers create **polished, high-quality, AI-op
 4. Wait for the AI to process (spinner will show).  
 5. The optimized result will appear instantly in the editor.  
 
----
-
-## 📂 File Structure  
-
-```
-ai-content-optimizer/
-│
-├── ai-content-optimizer.php   # Main plugin bootstrap
-├── includes/
-│   ├── class-ai-optimizer.php # Core logic
-│   ├── settings-page.php      # API key settings
-│   └── helpers.php            # Helper functions
-├── assets/
-│   ├── css/
-│   │   └── admin.css          # Admin styles
-│   ├── js/
-│   │   └── admin.js           # Admin scripts (AJAX + UI)
-│   └── img/
-│       └── icon.png           # Plugin icon
-├── readme.md                  # Documentation
-```
 
 ---
 
@@ -83,18 +62,8 @@ This project is licensed under the **GPL v2 or later** – same license as WordP
 
 ---
 
-## 🙌 Contributing  
-
-Contributions are welcome!  
-- Fork the repository  
-- Create a feature branch (`feature/amazing-idea`)  
-- Commit your changes  
-- Open a Pull Request  
-
----
 
 ## 🌟 Author  
 
 👨‍💻 Developed by **Sudipta Das**  
-🔗 [GitHub Profile](https://github.com/)  
-🔗 [Codecanyon Portfolio](https://codecanyon.net/)  
+
